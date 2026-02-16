@@ -1,6 +1,6 @@
-# 🏥 HealthBridge AI — Smart Telehealth & Pharmacy Intelligence Platform
+# 🏥 Sanjeevani — Smart Telehealth & Pharmacy Intelligence Platform
 
-Built with **Better-T-Stack**, HealthBridge AI enhances telemedicine using intelligent triage, pharmacy availability detection, multilingual prescription visualization, and adaptive connectivity fallback.
+Built with **Better-T-Stack**, Sanjeevani enhances telemedicine using intelligent triage, pharmacy availability detection, multilingual prescription visualization, and adaptive connectivity fallback.
 
 This system is designed for **real-world healthcare accessibility**, especially in **low bandwidth**, **multilingual**, and **medicine-scarce environments**.
 
@@ -8,7 +8,7 @@ This system is designed for **real-world healthcare accessibility**, especially 
 
 ## 🚀 Overview
 
-HealthBridge AI is a full-stack healthcare support platform that helps patients:
+Sanjeevani is a full-stack healthcare support platform that helps patients:
 
 * Get prioritized care during emergencies
 * Find medicines in nearby pharmacies
@@ -288,7 +288,7 @@ bun run generate-pwa-assets
 
 ## 🌍 Impact Vision
 
-HealthBridge AI aims to deliver:
+Sanjeevani aims to deliver:
 
 * Faster emergency response
 * Easier medicine access
@@ -313,4 +313,4 @@ Understandable
 Reliable
 Scalable
 
-HealthBridge AI is built to support that future.
+Sanjeevani is built to support that future.
