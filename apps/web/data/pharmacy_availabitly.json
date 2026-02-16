@@ -1,0 +1,402 @@
+{
+    "city": "Prayagraj",
+    "last_updated": "2026-02-16",
+    "pharmacies": [
+      {
+        "id": "PH001",
+        "name": "Sharma Medical Store",
+        "area": "Civil Lines",
+        "inventory": [
+          {
+            "medicine_id": "MED001",
+            "brand_name": "Dolo 650",
+            "generic_name": "Paracetamol",
+            "category": "Fever & Pain",
+            "dosage_form": "Tablet",
+            "strength": "650mg",
+            "prescription_required": false,
+            "stock": 120,
+            "price": 32
+          },
+          {
+            "medicine_id": "MED002",
+            "brand_name": "Augmentin 625",
+            "generic_name": "Amoxicillin + Clavulanic Acid",
+            "category": "Antibiotic",
+            "dosage_form": "Tablet",
+            "strength": "625mg",
+            "prescription_required": true,
+            "stock": 40,
+            "price": 185
+          },
+          {
+            "medicine_id": "MED003",
+            "brand_name": "Pantocid",
+            "generic_name": "Pantoprazole",
+            "category": "Acidity",
+            "dosage_form": "Tablet",
+            "strength": "40mg",
+            "prescription_required": false,
+            "stock": 75,
+            "price": 48
+          },
+          {
+            "medicine_id": "MED016",
+            "brand_name": "Paracetamol 650mg",
+            "generic_name": "Paracetamol",
+            "category": "Fever & Pain",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 100,
+            "price": 35,
+            "prescription_details": {
+              "instructions": "Take 1 tablet (650mg) 3 times a day for 5 days. Qty: 10. Take in the morning. Take if fever >100°F."
+            }
+          },
+          {
+            "medicine_id": "MED017",
+            "brand_name": "Levocetirizine 5mg",
+            "generic_name": "Levocetirizine",
+            "category": "Allergy",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 50,
+            "price": 25,
+            "prescription_details": {
+              "instructions": "Take 1 tablet once a day for 5 days. Qty: 5. Take at night."
+            }
+          },
+          {
+            "medicine_id": "MED018",
+            "brand_name": "Cough Syrup",
+            "generic_name": "Cough Syrup",
+            "category": "Cough & Cold",
+            "dosage_form": "Syrup",
+            "strength": "10 ml",
+            "prescription_required": false,
+            "stock": 20,
+            "price": 60,
+            "prescription_details": {
+              "instructions": "Take 10 ml 2 times per day for 5 days. Qty: 1. Shake well before use."
+            }
+          }
+        ]
+      },
+      {
+        "id": "PH002",
+        "name": "Gupta Pharmacy",
+        "area": "Katra",
+        "inventory": [
+          {
+            "medicine_id": "MED004",
+            "brand_name": "Azithral",
+            "generic_name": "Azithromycin",
+            "category": "Antibiotic",
+            "dosage_form": "Tablet",
+            "strength": "500mg",
+            "prescription_required": true,
+            "stock": 35,
+            "price": 95
+          },
+          {
+            "medicine_id": "MED005",
+            "brand_name": "Glycomet",
+            "generic_name": "Metformin",
+            "category": "Diabetes",
+            "dosage_form": "Tablet",
+            "strength": "500mg",
+            "prescription_required": true,
+            "stock": 80,
+            "price": 30
+          },
+          {
+            "medicine_id": "MED006",
+            "brand_name": "Cetcip",
+            "generic_name": "Cetirizine",
+            "category": "Allergy",
+            "dosage_form": "Tablet",
+            "strength": "10mg",
+            "prescription_required": false,
+            "stock": 90,
+            "price": 18
+          },
+          {
+            "medicine_id": "MED017",
+            "brand_name": "Levocetirizine 5mg",
+            "generic_name": "Levocetirizine",
+            "category": "Allergy",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 40,
+            "price": 25,
+            "prescription_details": {
+              "instructions": "Take 1 tablet once a day for 5 days. Qty: 5. Take at night."
+            }
+          },
+          {
+            "medicine_id": "MED018",
+            "brand_name": "Cough Syrup",
+            "generic_name": "Cough Syrup",
+            "category": "Cough & Cold",
+            "dosage_form": "Syrup",
+            "strength": "10 ml",
+            "prescription_required": false,
+            "stock": 15,
+            "price": 60,
+            "prescription_details": {
+              "instructions": "Take 10 ml 2 times per day for 5 days. Qty: 1. Shake well before use."
+            }
+          }
+        ]
+      },
+      {
+        "id": "PH003",
+        "name": "LifeCare Medical",
+        "area": "Allahpur",
+        "inventory": [
+          {
+            "medicine_id": "MED007",
+            "brand_name": "Combiflam",
+            "generic_name": "Ibuprofen + Paracetamol",
+            "category": "Pain Relief",
+            "dosage_form": "Tablet",
+            "strength": "400mg + 325mg",
+            "prescription_required": false,
+            "stock": 60,
+            "price": 42
+          },
+          {
+            "medicine_id": "MED008",
+            "brand_name": "Montek LC",
+            "generic_name": "Montelukast + Levocetirizine",
+            "category": "Allergy",
+            "dosage_form": "Tablet",
+            "strength": "10mg + 5mg",
+            "prescription_required": true,
+            "stock": 50,
+            "price": 85
+          },
+          {
+            "medicine_id": "MED009",
+            "brand_name": "ORS Electral",
+            "generic_name": "Oral Rehydration Salts",
+            "category": "Hydration",
+            "dosage_form": "Sachet",
+            "strength": "Standard",
+            "prescription_required": false,
+            "stock": 200,
+            "price": 20
+          },
+          {
+            "medicine_id": "MED016",
+            "brand_name": "Paracetamol 650mg",
+            "generic_name": "Paracetamol",
+            "category": "Fever & Pain",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 60,
+            "price": 35,
+            "prescription_details": {
+              "instructions": "Take 1 tablet (650mg) 3 times a day for 5 days. Qty: 10. Take in the morning. Take if fever >100°F."
+            }
+          },
+          {
+            "medicine_id": "MED017",
+            "brand_name": "Levocetirizine 5mg",
+            "generic_name": "Levocetirizine",
+            "category": "Allergy",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 20,
+            "price": 25,
+            "prescription_details": {
+              "instructions": "Take 1 tablet once a day for 5 days. Qty: 5. Take at night."
+            }
+          },
+          {
+            "medicine_id": "MED018",
+            "brand_name": "Cough Syrup",
+            "generic_name": "Cough Syrup",
+            "category": "Cough & Cold",
+            "dosage_form": "Syrup",
+            "strength": "10 ml",
+            "prescription_required": false,
+            "stock": 10,
+            "price": 60,
+            "prescription_details": {
+              "instructions": "Take 10 ml 2 times per day for 5 days. Qty: 1. Shake well before use."
+            }
+          }
+        ]
+      },
+      {
+        "id": "PH004",
+        "name": "City Medicos",
+        "area": "George Town",
+        "inventory": [
+          {
+            "medicine_id": "MED010",
+            "brand_name": "Atorlip",
+            "generic_name": "Atorvastatin",
+            "category": "Cholesterol",
+            "dosage_form": "Tablet",
+            "strength": "10mg",
+            "prescription_required": true,
+            "stock": 45,
+            "price": 75
+          },
+          {
+            "medicine_id": "MED011",
+            "brand_name": "Ecosprin",
+            "generic_name": "Aspirin",
+            "category": "Heart Care",
+            "dosage_form": "Tablet",
+            "strength": "75mg",
+            "prescription_required": false,
+            "stock": 65,
+            "price": 22
+          },
+          {
+            "medicine_id": "MED012",
+            "brand_name": "Benadryl",
+            "generic_name": "Diphenhydramine",
+            "category": "Cough & Cold",
+            "dosage_form": "Syrup",
+            "strength": "100ml",
+            "prescription_required": false,
+            "stock": 30,
+            "price": 95
+          },
+          {
+            "medicine_id": "MED016",
+            "brand_name": "Paracetamol 650mg",
+            "generic_name": "Paracetamol",
+            "category": "Fever & Pain",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 80,
+            "price": 35,
+            "prescription_details": {
+              "instructions": "Take 1 tablet (650mg) 3 times a day for 5 days. Qty: 10. Take in the morning. Take if fever >100°F."
+            }
+          },
+          {
+            "medicine_id": "MED017",
+            "brand_name": "Levocetirizine 5mg",
+            "generic_name": "Levocetirizine",
+            "category": "Allergy",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 50,
+            "price": 25,
+            "prescription_details": {
+              "instructions": "Take 1 tablet once a day for 5 days. Qty: 5. Take at night."
+            }
+          },
+          {
+            "medicine_id": "MED018",
+            "brand_name": "Cough Syrup",
+            "generic_name": "Cough Syrup",
+            "category": "Cough & Cold",
+            "dosage_form": "Syrup",
+            "strength": "10 ml",
+            "prescription_required": false,
+            "stock": 25,
+            "price": 60,
+            "prescription_details": {
+              "instructions": "Take 10 ml 2 times per day for 5 days. Qty: 1. Shake well before use."
+            }
+          }
+        ]
+      },
+      {
+        "id": "PH005",
+        "name": "Sanjeevani Medicals",
+        "area": "Jhunsi",
+        "inventory": [
+          {
+            "medicine_id": "MED013",
+            "brand_name": "Insugen",
+            "generic_name": "Human Insulin",
+            "category": "Diabetes",
+            "dosage_form": "Injection",
+            "strength": "100 IU/ml",
+            "prescription_required": true,
+            "stock": 12,
+            "price": 180
+          },
+          {
+            "medicine_id": "MED014",
+            "brand_name": "Calcirol",
+            "generic_name": "Calcium + Vitamin D3",
+            "category": "Supplements",
+            "dosage_form": "Tablet",
+            "strength": "500mg",
+            "prescription_required": false,
+            "stock": 95,
+            "price": 55
+          },
+          {
+            "medicine_id": "MED015",
+            "brand_name": "Omez",
+            "generic_name": "Omeprazole",
+            "category": "Acidity",
+            "dosage_form": "Capsule",
+            "strength": "20mg",
+            "prescription_required": false,
+            "stock": 70,
+            "price": 35
+          },
+          {
+            "medicine_id": "MED016",
+            "brand_name": "Paracetamol 650mg",
+            "generic_name": "Paracetamol",
+            "category": "Fever & Pain",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 55,
+            "price": 35,
+            "prescription_details": {
+              "instructions": "Take 1 tablet (650mg) 3 times a day for 5 days. Qty: 10. Take in the morning. Take if fever >100°F."
+            }
+          },
+          {
+            "medicine_id": "MED017",
+            "brand_name": "Levocetirizine 5mg",
+            "generic_name": "Levocetirizine",
+            "category": "Allergy",
+            "dosage_form": "Tablet",
+            "strength": "1 tablet",
+            "prescription_required": false,
+            "stock": 25,
+            "price": 25,
+            "prescription_details": {
+              "instructions": "Take 1 tablet once a day for 5 days. Qty: 5. Take at night."
+            }
+          },
+          {
+            "medicine_id": "MED018",
+            "brand_name": "Cough Syrup",
+            "generic_name": "Cough Syrup",
+            "category": "Cough & Cold",
+            "dosage_form": "Syrup",
+            "strength": "10 ml",
+            "prescription_required": false,
+            "stock": 15,
+            "price": 60,
+            "prescription_details": {
+              "instructions": "Take 10 ml 2 times per day for 5 days. Qty: 1. Shake well before use."
+            }
+          }
+        ]
+      }
+    ]
+  }

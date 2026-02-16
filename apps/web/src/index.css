@@ -1,0 +1,346 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Neobrutalism Design System ──────────────────────────────── */
+
+:root {
+  /* Core Colors - High Contrast */
+  --background: #FFFAF0; /* Warm off-white */
+  --foreground: #000000;
+  
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  
+  --primary: #5C94FF; /* Vibrant Blue */
+  --primary-foreground: #000000;
+  
+  --secondary: #E0E7FF; /* Light Blue */
+  --secondary-foreground: #000000;
+  
+  --muted: #F3F4F6;
+  --muted-foreground: #4B5563;
+  
+  --accent: #A3E635; /* Lime/Green Accent */
+  --accent-foreground: #000000;
+  
+  --destructive: #FF6B6B;
+  --destructive-foreground: #000000;
+  
+  --border: #000000; /* Bold Black Borders */
+  --input: #FFFFFF;
+  --ring: #000000;
+  --shadow: #000000; /* Hard Shadow Color */
+
+  /* Chart colors (Vibrant/Pop) */
+  --chart-1: #5C94FF;
+  --chart-2: #A3E635;
+  --chart-3: #FCD34D;
+  --chart-4: #F472B6;
+  --chart-5: #C084FC;
+
+  --radius: 0.5rem; /* Slightly tighter radius */
+
+  /* Sidebar */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #5C94FF;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #E0E7FF;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #000000;
+  --sidebar-ring: #000000;
+
+  /* Extended palette - Flat & Vibrant */
+  --emerald: #A3E635; /* Reusing Lime for success */
+  --emerald-light: #ECFCCB;
+  --emerald-foreground: #000000;
+  
+  --amber: #FCD34D;
+  --amber-light: #FEF3C7;
+  --amber-foreground: #000000;
+  
+  --red: #FF6B6B;
+  --red-light: #FEE2E2;
+  --red-foreground: #000000;
+  
+  --blue-light: #DBEAFE;
+  --blue-dark: #1E40AF;
+}
+
+.dark {
+  /* Dark mode neobrutalism - usually inverted or just dark grey/black */
+  --background: #121212;
+  --foreground: #FFFFFF;
+  --card: #1E1E1E;
+  --card-foreground: #FFFFFF;
+  --popover: #1E1E1E;
+  --popover-foreground: #FFFFFF;
+  --primary: #5C94FF;
+  --primary-foreground: #000000;
+  --secondary: #2A2A2A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2A2A2A;
+  --muted-foreground: #A1A1AA;
+  --accent: #A3E635;
+  --accent-foreground: #000000;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #000000;
+  --border: #FFFFFF; /* White borders in dark mode */
+  --input: #2A2A2A;
+  --ring: #FFFFFF;
+  --shadow: #000000; /* Keep shadows black in dark mode for depth, or use #FFFFFF for high contrast inversion? */
+  /* If background is dark (#121212) and card is #1E1E1E, a black shadow (#000) is subtle but visible. 
+     A white shadow looks like a glitch. Let's try keeping shadow black but using white borders. 
+     Or maybe a colored shadow (primary)? */
+  
+  /* Let's try Primary color shadow in dark mode for "Cyberpunk" feel, or just black. 
+     Actually, standard neobrutalism dark mode often uses WHITE borders and NO shadow, or Black shadow.
+     If I use #000000 shadow on #121212 background, it's barely visible.
+     If I use #FFFFFF shadow, it's very strong. 
+     Let's try #FFFFFF shadow but with opacity? No, solid.
+     Let's try a dark grey shadow or stick to black but make borders pop. */
+  --shadow: #000000; 
+
+  --chart-1: #5C94FF;
+  --chart-2: #A3E635;
+  --chart-3: #FCD34D;
+  --chart-4: #F472B6;
+  --chart-5: #C084FC;
+
+  --sidebar: #1E1E1E;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #5C94FF;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #2A2A2A;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #FFFFFF;
+  --sidebar-ring: #FFFFFF;
+
+  --emerald: #A3E635;
+  --emerald-light: #365314;
+  --emerald-foreground: #FFFFFF;
+  --amber: #FCD34D;
+  --amber-light: #451A03;
+  --amber-foreground: #FFFFFF;
+  --red: #FF6B6B;
+  --red-light: #450A0A;
+  --red-foreground: #FFFFFF;
+  --blue-light: #172554;
+  --blue-dark: #DBEAFE;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), "Inter", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: var(--font-plus-jakarta), "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", monospace;
+
+  /* Re-mapping for Tailwind v4 */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-shadow: var(--shadow); /* New variable mapping */
+
+  /* Extended Colors */
+  --color-emerald: var(--emerald);
+  --color-emerald-light: var(--emerald-light);
+  --color-emerald-foreground: var(--emerald-foreground);
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-amber-foreground: var(--amber-foreground);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
+  --color-red-foreground: var(--red-foreground);
+  --color-blue-light: var(--blue-light);
+  --color-blue-dark: var(--blue-dark);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans text-foreground antialiased;
+    background: var(--background);
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  html {
+    @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography - Bold & Brutalist */
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-family: var(--font-heading);
+  }
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    font-family: var(--font-heading);
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: var(--card);
+    border: 2px solid var(--border);
+    box-shadow: 4px 4px 0px 0px var(--shadow);
+  }
+
+  /* Neobrutalist Hard Shadows */
+  .shadow-soft {
+    box-shadow: 4px 4px 0px 0px var(--shadow);
+    border: 2px solid var(--border);
+  }
+  .shadow-soft-md {
+    box-shadow: 6px 6px 0px 0px var(--shadow);
+    border: 2px solid var(--border);
+  }
+  .shadow-soft-lg {
+    box-shadow: 8px 8px 0px 0px var(--shadow);
+    border: 2px solid var(--border);
+  }
+
+  /* Status Pills - Bold Borders */
+  .pill-success {
+    @apply rounded-full bg-emerald-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
+    color: var(--emerald-foreground);
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+  }
+  .pill-warning {
+    @apply rounded-full bg-amber-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
+    color: var(--amber-foreground);
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+  }
+  .pill-danger {
+    @apply rounded-full bg-red-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
+    color: var(--red-foreground);
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+  }
+  .pill-info {
+    @apply rounded-full bg-blue-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
+    color: var(--blue-dark);
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+  }
+  .pill-xs {
+    box-shadow: 1px 1px 0px 0px var(--shadow);
+  }
+
+  /* Icon Circles - Bold Borders */
+  .icon-circle-blue {
+    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+    background: var(--blue-light);
+    color: var(--primary);
+  }
+  .icon-circle-emerald {
+    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+    background: var(--emerald-light);
+    color: var(--emerald-foreground);
+  }
+  .icon-circle-amber {
+    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+    background: var(--amber-light);
+    color: var(--amber-foreground);
+  }
+  .icon-circle-red {
+    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
+    box-shadow: 2px 2px 0px 0px var(--shadow);
+    background: var(--red-light);
+    color: var(--red-foreground);
+  }
+
+  @keyframes nb-rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes nb-pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .nb-rise {
+    animation: nb-rise-in 0.58s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .nb-pop {
+    animation: nb-pop-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .nb-delay-1 {
+    animation-delay: 70ms;
+  }
+
+  .nb-delay-2 {
+    animation-delay: 120ms;
+  }
+
+  .nb-delay-3 {
+    animation-delay: 170ms;
+  }
+
+  .nb-delay-4 {
+    animation-delay: 220ms;
+  }
+}

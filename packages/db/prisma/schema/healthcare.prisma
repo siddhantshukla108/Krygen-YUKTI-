@@ -1,0 +1,212 @@
+enum UserRole {
+  PATIENT
+  DOCTOR
+  PHARMACY
+  ADMIN
+}
+
+enum ApprovalState {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+enum AppointmentStatus {
+  BOOKED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum CallMode {
+  VIDEO
+  AUDIO
+  CHAT
+}
+
+enum ReservationStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  FULFILLED
+  CANCELLED
+}
+
+model Patient {
+  id                 String          @id @default(cuid())
+  userId             String          @unique
+  age                Int?
+  gender             String?
+  bloodGroup         String?
+  village            String?
+  languagePreference String?
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+  user               User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appointments       Appointment[]
+  reports            Report[]
+  prescriptions      Prescription[]
+  reservations       Reservation[]
+}
+
+model Doctor {
+  id                   String             @id @default(cuid())
+  userId               String             @unique
+  specialty            String
+  languages            String[]
+  licenseNumber        String?
+  licenseDocumentUrl   String?
+  emergencyPriority    Boolean            @default(false)
+  consultationFeePaise Int                @default(0)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  user                 User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  availability         DoctorAvailability[]
+  appointments         Appointment[]
+  prescriptions        Prescription[]
+}
+
+model DoctorAvailability {
+  id        String   @id @default(cuid())
+  doctorId  String
+  dayOfWeek Int
+  startTime String
+  endTime   String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  doctor    Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@unique([doctorId, dayOfWeek, startTime, endTime])
+}
+
+model Pharmacy {
+  id                      String             @id @default(cuid())
+  userId                  String             @unique
+  displayName             String
+  village                 String?
+  registrationNumber      String?
+  registrationDocumentUrl String?
+  active                  Boolean            @default(true)
+  createdAt               DateTime           @default(now())
+  updatedAt               DateTime           @updatedAt
+  user                    User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  inventory               PharmacyInventory[]
+  reservations            Reservation[]
+}
+
+model Medicine {
+  id             String             @id @default(cuid())
+  name           String
+  brand          String?
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  inventoryItems PharmacyInventory[]
+
+  @@unique([name, brand])
+}
+
+model PharmacyInventory {
+  id         String    @id @default(cuid())
+  pharmacyId String
+  medicineId String
+  pricePaise Int
+  quantity   Int
+  inStock    Boolean   @default(true)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  pharmacy   Pharmacy  @relation(fields: [pharmacyId], references: [id], onDelete: Cascade)
+  medicine   Medicine  @relation(fields: [medicineId], references: [id], onDelete: Cascade)
+
+  @@unique([pharmacyId, medicineId])
+}
+
+model Appointment {
+  id             String            @id @default(cuid())
+  patientId      String
+  doctorId       String
+  scheduledAt    DateTime
+  status         AppointmentStatus @default(BOOKED)
+  callRoomId     String            @unique @default(uuid())
+  callMode       CallMode          @default(VIDEO)
+  startedAt      DateTime?
+  endedAt        DateTime?
+  consultationUi String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  patient        Patient           @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctor         Doctor            @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  reports        Report[]
+  prescription   Prescription?
+}
+
+model Report {
+  id            String       @id @default(cuid())
+  patientId     String
+  appointmentId String?
+  fileName      String
+  fileUrl       String
+  mimeType      String
+  createdAt     DateTime     @default(now())
+  patient       Patient      @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  appointment   Appointment? @relation(fields: [appointmentId], references: [id], onDelete: SetNull)
+}
+
+model Prescription {
+  id           String             @id @default(cuid())
+  appointmentId String            @unique
+  patientId    String
+  doctorId     String
+  symptoms     String
+  diagnosis    String
+  notes        String?
+  followUpDate DateTime?
+  qrToken      String             @unique @default(uuid())
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  appointment  Appointment        @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  patient      Patient            @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctor       Doctor             @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  items        PrescriptionItem[]
+  reservations Reservation[]
+}
+
+model PrescriptionItem {
+  id             String       @id @default(cuid())
+  prescriptionId String
+  medicineName   String
+  dosage         String
+  frequency      String
+  durationDays   Int
+  quantity       Int
+  instructions   String?
+  createdAt      DateTime     @default(now())
+  prescription   Prescription @relation(fields: [prescriptionId], references: [id], onDelete: Cascade)
+}
+
+model Reservation {
+  id             String            @id @default(cuid())
+  patientId      String
+  pharmacyId     String
+  prescriptionId String
+  status         ReservationStatus @default(PENDING)
+  requestedAt    DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  note           String?
+  patient        Patient           @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  pharmacy       Pharmacy          @relation(fields: [pharmacyId], references: [id], onDelete: Cascade)
+  prescription   Prescription      @relation(fields: [prescriptionId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  actorUserId String
+  action      String
+  entityType  String
+  entityId    String
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  actor       User     @relation(fields: [actorUserId], references: [id], onDelete: Cascade)
+}
